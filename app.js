@@ -24,3 +24,9 @@ function agregarAmigo() {
     nombre.value = "";
   }
 }
+
+document.getElementById("amigo").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    agregarAmigo();
+  }
+});
