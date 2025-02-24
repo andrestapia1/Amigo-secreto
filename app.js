@@ -30,3 +30,17 @@ document.getElementById("amigo").addEventListener("keypress", function(event) {
     agregarAmigo();
   }
 });
+
+function sortearAmigo() {
+  var mensaje = document.getElementById("mensaje");
+  if (listaAmigos.length < 2) {
+    mensaje.innerHTML = "Debe haber al menos dos amigos para sortear";
+    mensaje.style.color = "red";
+  } else {
+    var amigoSecreto = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    mensaje.innerHTML = "El amigo secreto es: " + amigoSecreto;
+    mensaje.style.color = "green";
+  }
+}
+
+document.getElementById("sortearBtn").addEventListener("click", sortearAmigo);
