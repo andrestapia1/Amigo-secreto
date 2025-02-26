@@ -1,9 +1,9 @@
-var listaAmigos = [];
-
+const listaAmigos = [];
+const nombre = document.getElementById("amigo");
+const mensaje = document.getElementById("resultado");
+const lista = document.getElementById("listaAmigos");
 function agregarAmigo() {
-  var nombre = document.getElementById("amigo");
-  var mensaje = document.getElementById("mensaje");
-  var lista = document.getElementById("listaAmigos");
+ 
 
   if (/\d/.test(nombre.value) || nombre.value.trim() == "" || /[^A-Za-z\s]/.test(nombre.value)) {
     mensaje.innerHTML = "Ingresa un nombre válido";
@@ -15,8 +15,8 @@ function agregarAmigo() {
     mensaje.innerHTML = "El nombre es válido";
     mensaje.style.color = "green";
 
-    var li = document.createElement("li");
-    var litext = document.createTextNode(nombre.value);
+    const li = document.createElement("li");
+    const litext = document.createTextNode(nombre.value);
     li.appendChild(litext);
     lista.appendChild(li);
 
@@ -32,15 +32,15 @@ document.getElementById("amigo").addEventListener("keypress", function(event) {
 });
 
 function sortearAmigo() {
-  var mensaje = document.getElementById("mensaje");
+ 
   if (listaAmigos.length < 2) {
     mensaje.innerHTML = "Debe haber al menos dos amigos para sortear";
     mensaje.style.color = "red";
   } else {
-    var amigoSecreto = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    const amigoSecreto = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
     mensaje.innerHTML = "El amigo secreto es: " + amigoSecreto;
     mensaje.style.color = "green";
   }
 }
 
-document.getElementById("sortearBtn").addEventListener("click", sortearAmigo);
+//document.getElementById("sortearBtn").addEventListener("click", sortearAmigo);
